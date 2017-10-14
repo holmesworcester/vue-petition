@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<title>Call for Net Neutrality</title>
+<script src="https://unpkg.com/vue"></script>
+
+<!-- We could set our own themes here in a campaigner-friendly way-->
+<!-- We could possibly even add something like this for more comlex layouts: https://github.com/dreikanter/markdown-grid -->
+<xmp theme="united" style="display:none;">
+
+<!-- Look, we can use markdown! :) -->
+
+# Call for Net Neutrality
+
+FCC Chair Ajit Pai is about to announce a vote to slash America's net neutrality rules&mdash;meaning companies like Comcast & Verizon will be able to block apps, slow websites, and charge fees to control what you see & do online. Once Pai announces the vote, the situation becomes desperate. **But if we flood Congress with phone calls right now, they can stop the vote.**
+
+<!-- And we can use vue.js, with some markdown in it-->
+
+<div id="app">
+
+<!-- displays until form submitted (!submitted means "not submitted") -->
+
+<div v-if="!submitted">
+	<input v-on:keyup.enter="submit" type="number" pattern="[0-9]*" inputmode="numeric" v-model="phoneNumber" placeholder="Enter your #">
+	<button v-on:click="submit">Call Congress</button>
+	<p>Enter your phone number and we'll connect you. Your number will only be used to place this call. [Privacy Policy](http://fightforthefuture.org/privacy)</p>
+</div>
+
+<!-- displays once the form has been submitted. Note how markdown even works in here??! -->
+
+<div class="form" v-if="submitted">Phone number submitted to [fightforthefuture.org](fightforthefuture.org)!</div>
+</div>
+
+<!-- and back to straight markdown for the rest of the page-->
+
+## What *is* Net Neutrality? Why does it matter?
+
+*Net neutrality* is the principle that Internet providers like Comcast &amp; Verizon should not control what we see and do online. In 2015, startups, Internet freedom groups, and 3.7 million commenters won strong net neutrality rules from the US Federal Communication Commission (FCC). The rules prohibit Internet providers from blocking, throttling, and paid prioritization&mdash;"fast lanes" for sites that pay, and slow lanes for everyone else.
+
+## We are Team Internet and we support Net Neutrality.
+
+Testing this out. 
+</xmp>
+
+<script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+<script>
+'use strict'
+  new Vue({
+        el: "#app",
+        data: {
+        	submitted: false,
+			phoneNumber: null        
+		},
+        methods: {
+        	// "submits" the number and changes the state (placeholder)
+        	submit: function () {
+        		console.log(this.phoneNumber)
+        		this.submitted = true
+    	}
+    }
+});
+</script>
+</html>
